@@ -6,7 +6,7 @@ import requests
 from telebot.types import InlineKeyboardButton
 
 # Fillout Here The BotToken it gets from botfather further queries @riz4d 0n telegram
-bot = telebot.TeleBot('< BOT_TOKEN here >')
+bot = telebot.TeleBot('BOT_TOKEN')
 
 keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
 keyboard.add(InlineKeyboardButton(text='Generate email'))
@@ -16,14 +16,15 @@ keyboard.add(InlineKeyboardButton(text='About'))
 def start_message(message):
    bot.send_message(message.chat.id,
 '''
-Hey.,
-Welcome to MysteryMail Bot
+Hello..
+I m Fast And Powerfull Temp Mail Bot.
 Usage:
-➪ To Generate emails by clicking on the button "Generate email"
-➪ To refresh your inbox click on the button "Refresh inbox"
+🚀 To Generate emails by clicking on the button "Generate email"
+🔎 To refresh your inbox click on the button "Refresh inbox"
 ➪ After a new letter arrives, you will see a button with a subject line, click on this button to read the message.
                               
-Dev : @riz4d
+🍁Powerd By [Emo Bot Devolopers](t.me/EmoBotDevolopers)
+🧑‍💻Devoloper :- @ImRishmika
 ''')
    
 @bot.message_handler(content_types=['text'])
@@ -41,7 +42,7 @@ def send_text(message):
     elif message.text.lower() == 'about':
         bot.send_message(message.chat.id,
 '''
-What is Mystery Mail?
+What is TempMail Mail?
 
 - it is a free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses. It is also known by names like tempmail, 10minutemail, 10minmail, throwaway email, fake-mail , fake email generator, burner mail or trash-mail
 
@@ -49,14 +50,15 @@ How Mystery Mail Become Safer You?
 
 - Using the temporary mail allows you to completely protect your real mailbox against the loss of personal information. Your temporary e-mail address is completely anonymous. Your details: information about your person and users with whom you communicate, IP-address, e-mail address are protected and completely confidential.
 
-➪ Bot Name : MysteryMail
-➪ Author : @riz4d
-➪ Language : Python''')
+🚀 Bot Name : TempMail Bot
+🧑‍💻 Author : @ImRishmika
+🚀 Language : Python
+🚀 Host Platform : Heroku''')
     elif message.text.lower()[14] == "[":
         email = message.text.lower()[15:message.text.lower().find("]")]
         bkeyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-        bkeyboard.add(InlineKeyboardButton(text='Refresh inbox\n[' + str(email) + "]"))
-        bkeyboard.add(InlineKeyboardButton(text='Generate email'))
+        bkeyboard.add(InlineKeyboardButton(text='🔮Refresh inbox🔮\n[' + str(email) + "]"))
+        bkeyboard.add(InlineKeyboardButton(text='♻️Generate email'))
         try:
             data = requests.get(
                 "https://www.1secmail.com/api/v1/?action=getMessages&login=" + email[:email.find(
@@ -77,11 +79,11 @@ How Mystery Mail Become Safer You?
                                         reply_markup=bkeyboard)
                     count = i + 1
                 bot.send_message(message.chat.id, "Here " + str(
-                    count) + " message we're found\nClick on the below button to read the message\n\n Further Queries @riz4d")
+                    count) + " message we're found\nClick on the below button to read the message\n\n Further Queries @ImRishmika")
             else:
                 bot.send_message(message.chat.id, 'Nothing found', reply_markup=bkeyboard)
         except BaseException:
-            bot.send_message(message.chat.id, 'No messages were received...', reply_markup=bkeyboard)
+            bot.send_message(message.chat.id, '🎗️No messages were received...', reply_markup=bkeyboard)
     elif message.text.lower().find("[id"):
         try:
             data = message.text.lower()[message.text.lower().find("[id"):]
